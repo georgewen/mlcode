@@ -87,7 +87,7 @@ for t = 1 : m
 
   Z_2 = Theta1 * a_1;  % 25 x 1
   a_2 = sigmoid(Z_2);  % 25 x 1
-  a_2 = [1 ; a_3];     % 26 x 1
+  a_2 = [1 ; a_2];     % 26 x 1
   Z_3 = Theta2 * a_2;  % 10 x 1
   a_3 = sigmoid(Z_3);  % 10 x 1
 
@@ -103,6 +103,14 @@ end
 
 Theta2_grad = Theta2_grad / m;
 Theta1_grad = Theta1_grad / m;
+
+Theta1_reg2 = Theta1(:,2:end) * lambda/m;
+Theta2_reg2 = Theta2(:,2:end) * lambda/m;
+
+Theta1_grad(:,2:end) = Theta1_grad(:,2:end) + Theta1_reg2;
+Theta2_grad(:,2:end) = Theta2_grad(:,2:end) + Theta2_reg2;
+
+
 
 
 % -------------------------------------------------------------
