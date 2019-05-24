@@ -1,11 +1,20 @@
 function [error_train, error_val] = ...
     learningCurve(X, y, Xval, yval, lambda)
+<<<<<<< HEAD
 %LEARNINGCURVE Generates the train and cross validation set errors needed 
 %to plot a learning curve
 %   [error_train, error_val] = ...
 %       LEARNINGCURVE(X, y, Xval, yval, lambda) returns the train and
 %       cross validation set errors for a learning curve. In particular, 
 %       it returns two vectors of the same length - error_train and 
+=======
+%LEARNINGCURVE Generates the train and cross validation set errors needed
+%to plot a learning curve
+%   [error_train, error_val] = ...
+%       LEARNINGCURVE(X, y, Xval, yval, lambda) returns the train and
+%       cross validation set errors for a learning curve. In particular,
+%       it returns two vectors of the same length - error_train and
+>>>>>>> d580c5e347fac2c2a619d238c3b54d6ed16ae9fc
 %       error_val. Then, error_train(i) contains the training error for
 %       i examples (and similarly for error_val(i)).
 %
@@ -22,9 +31,15 @@ error_train = zeros(m, 1);
 error_val   = zeros(m, 1);
 
 % ====================== YOUR CODE HERE ======================
+<<<<<<< HEAD
 % Instructions: Fill in this function to return training errors in 
 %               error_train and the cross validation errors in error_val. 
 %               i.e., error_train(i) and 
+=======
+% Instructions: Fill in this function to return training errors in
+%               error_train and the cross validation errors in error_val.
+%               i.e., error_train(i) and
+>>>>>>> d580c5e347fac2c2a619d238c3b54d6ed16ae9fc
 %               error_val(i) should give you the errors
 %               obtained after training on i examples.
 %
@@ -35,29 +50,53 @@ error_val   = zeros(m, 1);
 %       the _entire_ cross validation set (Xval and yval).
 %
 % Note: If you are using your cost function (linearRegCostFunction)
+<<<<<<< HEAD
 %       to compute the training and cross validation error, you should 
 %       call the function with the lambda argument set to 0. 
+=======
+%       to compute the training and cross validation error, you should
+%       call the function with the lambda argument set to 0.
+>>>>>>> d580c5e347fac2c2a619d238c3b54d6ed16ae9fc
 %       Do note that you will still need to use lambda when running
 %       the training to obtain the theta parameters.
 %
 % Hint: You can loop over the examples with the following:
 %
 %       for i = 1:m
+<<<<<<< HEAD
 %           % Compute train/cross validation errors using training examples 
 %           % X(1:i, :) and y(1:i), storing the result in 
 %           % error_train(i) and error_val(i)
 %           ....
 %           
+=======
+%           % Compute train/cross validation errors using training examples
+%           % X(1:i, :) and y(1:i), storing the result in
+%           % error_train(i) and error_val(i)
+%           ....
+%
+>>>>>>> d580c5e347fac2c2a619d238c3b54d6ed16ae9fc
 %       end
 %
 
 % ---------------------- Sample Solution ----------------------
 
+<<<<<<< HEAD
 
 
 
 
 
+=======
+for i = 1:m
+  [theta] = trainLinearReg(X(1:i,:), y(1:i), lambda);
+  [j1, grad1] = linearRegCostFunction(X(1:i,:), y(1:i), theta, 0);
+  error_train(i) = j1;
+  [j2, grad2] = linearRegCostFunction(Xval, yval, theta, 0);
+  error_val(i) = j2;
+
+end
+>>>>>>> d580c5e347fac2c2a619d238c3b54d6ed16ae9fc
 
 % -------------------------------------------------------------
 
